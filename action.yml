@@ -1,0 +1,16 @@
+name: 'Code Analysis'
+description: 'Run code analysis for Plone backend packages'
+inputs:
+  check:
+    description: 'Check to be used'
+    required: true
+  path:
+    description: 'Path to check'
+    required: true
+    default: "src"
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.check }}
+    - ${{ inputs.path }}
