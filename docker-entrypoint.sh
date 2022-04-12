@@ -4,6 +4,9 @@ set -e
 CHECK=$1
 CHECK_PATH=$2
 
+ls .
+find /github/
+
 if [[ "${CHECK}" == "black" ]]; then
   black "${CHECK_PATH}" --check --diff
 elif  [[ "${CHECK}" == "isort" ]]; then
