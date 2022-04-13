@@ -20,6 +20,10 @@ Possible checks:
 
 **Required** Path to check. Default `"src"`.
 
+## `base_dir`
+
+Base dir inside the repo.
+
 ## Example usage
 
 uses: kitconcept/code-analysis-action@v1

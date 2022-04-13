@@ -1,6 +1,10 @@
 name: 'Code Analysis'
 description: 'Run code analysis for Plone backend packages'
 inputs:
+  base_dir:
+    description: 'Base directory'
+    required: false
+    default: ""
   check:
     description: 'Check to be used'
     required: true
@@ -15,3 +19,5 @@ runs:
     - check
     - ${{ inputs.check }}
     - ${{ inputs.path }}
+  env:
+    BASE_DIR: ${{ inputs.base_dir }}
