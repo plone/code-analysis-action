@@ -10,7 +10,7 @@ inputs:
     default: "src"
 runs:
   using: 'docker'
-  image: 'kitconcept/code-quality:latest'
+  image: 'docker://kitconcept/code-quality:latest'
   args:
     - check
     - ${{ inputs.check }}
