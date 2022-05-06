@@ -1,4 +1,4 @@
-name: 'Plone Code Analysis'
+name: 'code-analysis-action'
 description: 'Run code analysis for Plone backend packages'
 author: 'Plone Community'
 branding:
