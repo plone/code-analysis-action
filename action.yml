@@ -14,7 +14,7 @@ inputs:
     default: "src"
 runs:
   using: 'docker'
-  image: 'docker://kitconcept/code-quality:latest'
+  image: 'docker://plone/code-quality:1.0'
   args:
     - check
     - ${{ inputs.check }}
