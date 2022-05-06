@@ -1,5 +1,9 @@
-name: 'Code Analysis'
+name: 'Plone Code Analysis'
 description: 'Run code analysis for Plone backend packages'
+author: 'Plone Community'
+branding:
+  icon: 'code'
+  color: 'blue'
 inputs:
   base_dir:
     description: 'Base directory'
