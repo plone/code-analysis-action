@@ -46,7 +46,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run check
-        uses: plone/code-analysis-action@1.0
+        uses: plone/code-analysis-action@v1
         with:
           base_dir: 'backend'
           check: 'black'
@@ -62,7 +62,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run check
-        uses: plone/code-analysis-action@1.0
+        uses: plone/code-analysis-action@v1
         with:
           base_dir: 'backend'
           check: 'flake8'
@@ -78,7 +78,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run check
-        uses: plone/code-analysis-action@1.0
+        uses: plone/code-analysis-action@v1
         with:
           base_dir: 'backend'
           check: 'isort'
@@ -94,7 +94,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run check
-        uses: plone/code-analysis-action@1.0
+        uses: plone/code-analysis-action@v1
         with:
           base_dir: 'backend'
           check: 'zpretty'
