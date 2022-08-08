@@ -11,17 +11,23 @@ inputs:
     default: ""
   check:
     description: 'Check to be used'
-    required: true
+    required: false
+    default: ""
   path:
     description: 'Path to check'
-    required: true
-    default: "src"
+    required: false
+    default: ""
+  log_level:
+    description: 'Log level'
+    required: false
+    default: "INFO"
 runs:
   using: 'docker'
-  image: 'docker://plone/code-quality:1.0'
+  image: 'docker://plone/code-quality:2.0'
   args:
     - check
     - ${{ inputs.check }}
     - ${{ inputs.path }}
   env:
     BASE_DIR: ${{ inputs.base_dir }}
+    LOG_LEVEL: ${{ inputs.log_level }}
