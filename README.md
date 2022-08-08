@@ -1,12 +1,23 @@
-# Plone Code Analysis
+<p align="center">
+  <a href="https://hub.docker.com/r/plone/code-quality">
+    <img alt="Plone Code Analysis GitHub Actions" width="200px" src="https://raw.githubusercontent.com/plone/code-analysis-action/main/docs/icon.png">
+  </a>
+</p>
 
-This action provides many checks for Plone backend code.
+<h1 align="center">
+  Plone Code Analysis
+</h1>
+
+GitHub Action providing many checks for Plone backend code.
+
+This action uses the [Plone Code Quality tool](https://github.com/plone/code-quality) docker image.
+
 
 ## Inputs
 
 ## `check`
 
-**Required** Type of check to run.
+**Optional** Type of check to run.
 
 Possible checks:
 
@@ -18,13 +29,102 @@ Possible checks:
 
 ## `path`
 
-**Required** Path to check. Default `"src"`.
+**Optional** Path to check.
 
 ## `base_dir`
 
 Base dir inside the repo.
 
+## `log_level`
+
+Sets the logging verbosity. Default `INFO`
+
 ## Examples
+
+### Run all checks
+
+Considering your codebase has a `pyproject.toml` with settings like:
+
+```toml
+[tool.plone-code-analysis]
+checkers = ["black", "flake8", "isort", "pyroma", "zpretty"]
+paths = "src"
+```
+
+Adding a workflow with the following configuration:
+
+```yaml
+name: Backend Code Analysis
+
+on: push
+
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout codebase
+        uses: actions/checkout@v2
+
+      - name: Run checks
+        uses: plone/code-analysis-action@v2
+
+```
+
+will run all checks on the `src` folder of the codebase.
+
+_Read about all possible configuration options on [Plone Code Quality tool documenation](https://github.com/plone/code-quality#configuration)._
+
+### Run one check, default paths
+
+
+```yaml
+name: Backend Code Analysis
+
+on: push
+
+jobs:
+
+  black:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout codebase
+        uses: actions/checkout@v2
+
+      - name: Run check
+        uses: plone/code-analysis-action@v2
+        with:
+          base_dir: 'backend'
+          check: 'black'
+
+```
+
+### Run one check, providing paths
+
+
+```yaml
+name: Backend Code Analysis
+
+on: push
+
+jobs:
+
+  black:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout codebase
+        uses: actions/checkout@v2
+
+      - name: Run check
+        uses: plone/code-analysis-action@v2
+        with:
+          base_dir: 'backend'
+          check: 'black'
+          path: |
+            src/ploneconf.core/src
+            src/ploneconf.core/setup.py
+            scripts
+
+```
+
 
 ### Codebase in a sub-directory of the codebase
 
@@ -46,7 +146,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run check
-        uses: plone/code-analysis-action@v1
+        uses: plone/code-analysis-action@v2
         with:
           base_dir: 'backend'
           check: 'black'
@@ -62,7 +162,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run check
-        uses: plone/code-analysis-action@v1
+        uses: plone/code-analysis-action@v2
         with:
           base_dir: 'backend'
           check: 'flake8'
@@ -78,7 +178,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run check
-        uses: plone/code-analysis-action@v1
+        uses: plone/code-analysis-action@v2
         with:
           base_dir: 'backend'
           check: 'isort'
@@ -94,7 +194,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run check
-        uses: plone/code-analysis-action@v1
+        uses: plone/code-analysis-action@v2
         with:
           base_dir: 'backend'
           check: 'zpretty'
