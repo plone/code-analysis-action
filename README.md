@@ -5,8 +5,17 @@
 </p>
 
 <h1 align="center">
-  Plone Code Analysis
+  Plone Code Analysis Action
 </h1>
+
+<div align="center">
+
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/plone/code-analysis-action)](https://github.com/plone/code-analysis-action)
+![GitHub Repo stars](https://img.shields.io/github/stars/plone/code-analysis-action?style=flat-square)
+[![license badge](https://img.shields.io/github/license/plone/code-analysis-action)](./LICENSE)
+
+</div>
+
 
 GitHub Action providing many checks for Plone backend code.
 
