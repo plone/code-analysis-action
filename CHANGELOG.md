@@ -1,6 +1,6 @@
 # Change Log
 
-## v2 (Unreleased)
+## v2 (2022-08-08)
 
 ### Feature
 
