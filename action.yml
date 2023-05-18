@@ -23,7 +23,7 @@ inputs:
     default: "INFO"
 runs:
   using: 'docker'
-  image: 'docker://plone/code-quality:2'
+  image: 'docker://plone/code-quality:2.1'
   args:
     - check
     - ${{ inputs.check }}
